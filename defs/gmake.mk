@@ -369,7 +369,7 @@ extract-gems: | $(call foreach-bundled-gems-rev,bundled-gem-extracted)
 # prepare-gems may not have run yet, so make the dep explicit for the
 # docs goals. Other targets are left alone so a plain `make` doesn't
 # reach for prepare-gems -> update-gems (network).
-ifneq ($(filter rdoc rdoc:% html html-server rdoc-coverage undocumented,$(MAKECMDGOALS)),)
+ifneq ($(filter rdoc rdoc:% html html-server rdoc-coverage undocumented docs install install-all install-doc install-html install-rdoc reinstall,$(MAKECMDGOALS)),)
 ext/configure-ext.mk: $(HAVE_BASERUBY:yes=prepare-gems)
 endif
 
